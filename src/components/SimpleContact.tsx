@@ -40,7 +40,7 @@ const SimpleContact = () => {
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <div className="font-semibold mb-1">Telefone</div>
-              <div className="text-sm text-muted-foreground">(11) 99999-9999</div>
+              <div className="text-sm text-muted-foreground">(31) 9999-9999</div>
             </a>
 
             <a
@@ -51,7 +51,7 @@ const SimpleContact = () => {
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div className="font-semibold mb-1">Email</div>
-              <div className="text-sm text-muted-foreground">contato@autopremium.com</div>
+              <div className="text-sm text-muted-foreground">contato@carsoul.com</div>
             </a>
 
             <div className="bg-card border border-border rounded-lg p-6 text-center">
@@ -59,7 +59,7 @@ const SimpleContact = () => {
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div className="font-semibold mb-1">Endereço</div>
-              <div className="text-sm text-muted-foreground">São Paulo - SP</div>
+              <div className="text-sm text-muted-foreground">Belo Horizonte - MG</div>
             </div>
           </div>
 

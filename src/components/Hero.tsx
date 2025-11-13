@@ -27,11 +27,10 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Proteção Premium
             <br />
-            <span className="text-gradient">Para Seu Veículo</span>
+            <span className="text-green-500">Para Seu Veículo</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Serviços automotivos de alto padrão com tecnologia de ponta.
-            Proteja seu investimento com os melhores do mercado.
+            Proteção Premium para seu veículo com tecnologia de ponta.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button

@@ -61,7 +61,7 @@ const CarCarousel = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Proteção Premium <span className="text-gradient">Para Seu Veículo</span>
+            Proteção Premium <span className="text-green-500">Para Seu Veículo</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Conheça nossos serviços automotivos de alto padrão com tecnologia de ponta
@@ -97,7 +97,7 @@ const CarCarousel = () => {
                       {/* Content */}
                       <div className="space-y-6 p-6 md:p-8">
                         <div>
-                          <span className="text-primary font-semibold text-sm tracking-wider uppercase">
+                          <span className="text-green-500 font-semibold text-sm tracking-wider uppercase">
                             Serviço Premium
                           </span>
                           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
@@ -114,13 +114,13 @@ const CarCarousel = () => {
                               key={idx}
                               className="bg-card border border-border rounded-lg p-4 text-center"
                             >
-                              <div className="text-primary font-bold text-sm">
+                              <div className="text-green-500 font-bold text-sm">
                                 {feature}
                               </div>
                             </div>
                           ))}
                         </div>
-
+                        {/* 
                         <Button
                           size="lg"
                           onClick={scrollToContact}
@@ -128,7 +128,7 @@ const CarCarousel = () => {
                         >
                           Solicitar Orçamento
                           <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </CardContent>

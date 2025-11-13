@@ -43,14 +43,14 @@ const Services = () => {
   return (
     <section id="services" className="py-24 bg-surface-dark">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Nossos <span className="text-gradient">Serviços</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Soluções premium de proteção automotiva com tecnologia de ponta e acabamento impecável
           </p>
-        </div>
+        </div> */}
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
