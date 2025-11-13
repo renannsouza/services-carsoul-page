@@ -12,25 +12,13 @@ const SimpleFooter = () => {
 
           <div className="flex gap-4">
             <a
-              href="#"
-              className="bg-secondary hover:bg-primary/20 p-2 rounded-lg transition-smooth border border-border hover:border-primary/30"
+              href="https://www.instagram.com/carsoulbr/"
+              className="bg-secondary hover:bg-primary/20 p-2 rounded-lg transition-smooth border border-border hover:border-primary/30 blank-target"
               aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Instagram className="h-5 w-5" />
-            </a>
-            <a
-              href="#"
-              className="bg-secondary hover:bg-green-500/20 p-2 rounded-lg transition-smooth border border-border hover:border-green-500/30"
-              aria-label="Facebook"
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
-            <a
-              href="#"
-              className="bg-secondary hover:bg-primary/20 p-2 rounded-lg transition-smooth border border-border hover:border-primary/30"
-              aria-label="YouTube"
-            >
-              <Youtube className="h-5 w-5" />
             </a>
           </div>
 
