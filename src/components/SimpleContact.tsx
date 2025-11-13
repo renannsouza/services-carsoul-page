@@ -24,7 +24,7 @@ const SimpleContact = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Agende Seu <span className="text-gradient">Serviço</span>
+              Agende Seu <span className="text-green-500">Serviço</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               Entre em contato e transforme seu veículo
@@ -34,10 +34,10 @@ const SimpleContact = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <a
               href="tel:+5511999999999"
-              className="bg-card border border-border rounded-lg p-6 text-center hover:border-primary/50 transition-smooth group"
+              className="bg-card border border-border rounded-lg p-6 text-center hover:border-green-500/50 transition-smooth group"
             >
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-primary/20 group-hover:bg-primary/20 transition-smooth">
-                <Phone className="h-6 w-6 text-primary" />
+              <div className="bg-green-500/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-green-500/20 group-hover:bg-green-500/20 transition-smooth">
+                <Phone className="h-6 w-6 text-green-500" />
               </div>
               <div className="font-semibold mb-1">Telefone</div>
               <div className="text-sm text-muted-foreground">(31) 9999-9999</div>
@@ -45,18 +45,18 @@ const SimpleContact = () => {
 
             <a
               href="mailto:contato@autopremium.com"
-              className="bg-card border border-border rounded-lg p-6 text-center hover:border-primary/50 transition-smooth group"
+              className="bg-card border border-border rounded-lg p-6 text-center hover:border-green-500/50 transition-smooth group"
             >
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-primary/20 group-hover:bg-primary/20 transition-smooth">
-                <Mail className="h-6 w-6 text-primary" />
+              <div className="bg-green-500/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-green-500/20 group-hover:bg-green-500/20 transition-smooth">
+                <Mail className="h-6 w-6 text-green-500" />
               </div>
               <div className="font-semibold mb-1">Email</div>
               <div className="text-sm text-muted-foreground">contato@carsoul.com</div>
             </a>
 
-            <div className="bg-card border border-border rounded-lg p-6 text-center">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-primary/20">
-                <MapPin className="h-6 w-6 text-primary" />
+            <div className="bg-card border border-border rounded-lg p-6 text-center hover:border-green-500/50 transition-smooth group cursor-pointer">
+              <div className="bg-green-500/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 border border-green-500/20 group-hover:bg-green-500/20 transition-smooth">
+                <MapPin className="h-6 w-6 text-green-500" />
               </div>
               <div className="font-semibold mb-1">Endereço</div>
               <div className="text-sm text-muted-foreground">Belo Horizonte - MG</div>
@@ -90,7 +90,7 @@ const SimpleContact = () => {
               />
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground glow-red"
+                className="w-full bg-green-500 hover:bg-green-500/90 text-white glow-green"
                 size="lg"
               >
                 Enviar Mensagem

@@ -6,8 +6,8 @@ const SimpleFooter = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xl font-bold tracking-wider">
-            <span className="text-foreground">AUTO</span>
-            <span className="text-primary">PREMIUM</span>
+            <span className="text-foreground">CAR</span>
+            <span className="text-green-500">SOUL</span>
           </div>
 
           <div className="flex gap-4">
@@ -20,7 +20,7 @@ const SimpleFooter = () => {
             </a>
             <a
               href="#"
-              className="bg-secondary hover:bg-primary/20 p-2 rounded-lg transition-smooth border border-border hover:border-primary/30"
+              className="bg-secondary hover:bg-green-500/20 p-2 rounded-lg transition-smooth border border-border hover:border-green-500/30"
               aria-label="Facebook"
             >
               <Facebook className="h-5 w-5" />
@@ -35,7 +35,7 @@ const SimpleFooter = () => {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} AutoPremium
+            &copy; {new Date().getFullYear()} CarSoul
           </p>
         </div>
       </div>

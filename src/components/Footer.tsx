@@ -7,8 +7,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="text-xl font-bold tracking-wider mb-4">
-              <span className="text-foreground">AUTO</span>
-              <span className="text-primary">PREMIUM</span>
+              <span className="text-foreground">CAR</span>
+              <span className="text-green-500">SOUL</span>
             </div>
             <p className="text-muted-foreground text-sm">
               Proteção premium para veículos de luxo com tecnologia de ponta e acabamento impecável.
@@ -19,17 +19,7 @@ const Footer = () => {
             <h4 className="font-bold mb-4">Links Rápidos</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#services" className="hover:text-primary transition-smooth">
-                  Serviços
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-primary transition-smooth">
-                  Sobre
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-primary transition-smooth">
+                <a href="#contact" className="hover:text-green-500 transition-smooth">
                   Contato
                 </a>
               </li>
@@ -65,7 +55,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AutoPremium. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} CarSoul. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
