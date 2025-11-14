@@ -7,13 +7,20 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ArrowRight, Info } from "lucide-react";
 import ppfImage from "@/assets/carPPF.png";
 import filmImage from "@/assets/hero-film.jpg";
 import nanoImage from "@/assets/hero-nano.jpg";
 import mainImage from "@/assets/hero-main.jpg";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const services = [
   {
@@ -26,6 +33,14 @@ const services = [
       "Efeito Self-Healing",
       "Proteção Contra Riscos",
     ],
+    benefits: [
+      "Protege a pintura original do veículo contra arranhões e riscos",
+      "Efeito self-healing que repara pequenos danos automaticamente",
+      "Resistência superior a impactos de pedras e detritos",
+      "Mantém o valor de revenda do veículo",
+      "Proteção contra raios UV e oxidação",
+      "Fácil manutenção e limpeza",
+    ],
   },
   {
     title: "Filme Solar 20%",
@@ -37,6 +52,14 @@ const services = [
       "Proteção UV 99%",
       "Redução de Calor Moderada",
     ],
+    benefits: [
+      "Reduz significativamente o calor interno do veículo",
+      "Proteção contra 99% dos raios UV nocivos",
+      "Melhora o conforto térmico durante viagens",
+      "Protege o interior do veículo contra desbotamento",
+      "Aumenta a privacidade sem comprometer a visibilidade",
+      "Economia de combustível com menor uso do ar condicionado",
+    ],
   },
   {
     title: "Nano Proteção",
@@ -44,6 +67,14 @@ const services = [
       "Revestimento nanotecnológico que cria uma película invisível, aumentando o brilho e facilitando a limpeza.",
     image: filmImage,
     features: ["Brilho Intenso", "Hidrorepelência", "Proteção Prolongada"],
+    benefits: [
+      "Cria uma camada protetora invisível e durável",
+      "Aumenta o brilho e realça a cor da pintura",
+      "Efeito hidrofóbico que facilita a limpeza",
+      "Protege contra manchas e sujeira",
+      "Resistente a produtos químicos e detergentes",
+      "Durabilidade prolongada com manutenção mínima",
+    ],
   },
   {
     title: "Cristalização dos Vidros",
@@ -54,6 +85,14 @@ const services = [
       "Maior Visibilidade",
       "Efeito Hidrofóbico",
       "Facilidade na Limpeza",
+    ],
+    benefits: [
+      "Melhora significativamente a visibilidade em dias chuvosos",
+      "Água escorre rapidamente, reduzindo o uso do limpador",
+      "Aumenta a segurança na condução",
+      "Protege os vidros contra riscos e manchas",
+      "Facilita a limpeza dos vidros",
+      "Durabilidade de até 2 anos",
     ],
   },
   {
@@ -66,6 +105,14 @@ const services = [
       "Remoção de Microarranhões",
       "Acabamento Premium",
     ],
+    benefits: [
+      "Remove microarranhões e imperfeições da pintura",
+      "Realça o brilho espelhado original",
+      "Restaura a aparência como novo do veículo",
+      "Protege a pintura contra danos futuros",
+      "Aumenta o valor estético do veículo",
+      "Acabamento profissional e duradouro",
+    ],
   },
   {
     title: "Filme PS4",
@@ -73,11 +120,20 @@ const services = [
       "Película automotiva de alta performance com proteção térmica e estética superior, ideal para quem busca conforto e estilo.",
     image: filmImage,
     features: ["Proteção UV 99%", "Alta Performance Térmica", "Visual Premium"],
+    benefits: [
+      "Proteção máxima contra raios UV (99%)",
+      "Alta performance na redução de calor",
+      "Visual premium e sofisticado",
+      "Protege o interior contra desbotamento",
+      "Melhora o conforto térmico",
+      "Garantia de qualidade e durabilidade",
+    ],
   },
 ];
 
 const CarCarousel = () => {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+  const [openDialog, setOpenDialog] = useState<number | null>(null);
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -130,9 +186,66 @@ const CarCarousel = () => {
                           <span className="text-green-500 font-semibold text-sm tracking-wider uppercase">
                             Serviço Premium
                           </span>
-                          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                            {service.title}
-                          </h2>
+                          <div className="flex items-center gap-3 mt-2 mb-4">
+                            <h2 className="text-3xl md:text-4xl font-bold">
+                              {service.title}
+                            </h2>
+                            <Dialog
+                              open={openDialog === index}
+                              onOpenChange={(open) =>
+                                setOpenDialog(open ? index : null)
+                              }
+                            >
+                              <DialogTrigger asChild>
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  className="flex items-center gap-2"
+                                >
+                                  <Info className="h-4 w-4" />
+                                  Benefícios
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle className="text-2xl">
+                                    Benefícios - {service.title}
+                                  </DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-6 mt-4">
+                                  {/* Imagem do produto */}
+                                  <div className="relative h-[300px] rounded-lg overflow-hidden">
+                                    <img
+                                      src={service.image}
+                                      alt={service.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                  {/* Lista de benefícios */}
+                                  <div>
+                                    <h3 className="text-xl font-semibold mb-4 text-green-500">
+                                      Benefícios para o seu carro:
+                                    </h3>
+                                    <ul className="space-y-3">
+                                      {service.benefits.map((benefit, idx) => (
+                                        <li
+                                          key={idx}
+                                          className="flex items-start gap-3"
+                                        >
+                                          <span className="text-green-500 mt-1.5">
+                                            ✓
+                                          </span>
+                                          <span className="text-muted-foreground">
+                                            {benefit}
+                                          </span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          </div>
                           <p className="text-muted-foreground text-lg leading-relaxed">
                             {service.description}
                           </p>
