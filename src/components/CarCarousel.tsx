@@ -17,39 +17,67 @@ import { useRef } from "react";
 
 const services = [
   {
-    title: "PPF - Paint Protection Film",
+    title: "PPF",
     description:
-      "Película transparente de alta tecnologia que protege a pintura contra arranhões, impactos e danos ambientais. Auto-regeneração com garantia de 10 anos.",
-    image: ppfImage,
-    features: ["Proteção Invisível", "Auto-regeneração", "Garantia 10 anos"],
-  },
-  {
-    title: "Insulfilm Premium",
-    description:
-      "Películas automotivas de última geração com redução de calor, proteção UV e privacidade total. Conforto e elegância para seu veículo.",
+      "Película de proteção de pintura que evita arranhões, riscos e pequenos impactos, mantendo a originalidade da lataria.",
     image: filmImage,
-    features: ["Redução de Calor 70%", "Bloqueio UV 99%", "Privacidade Total"],
+    features: [
+      "Alta Resistência",
+      "Efeito Self-Healing",
+      "Proteção Contra Riscos",
+    ],
   },
   {
-    title: "Nano Proteção Cerâmica",
+    title: "Filme Solar 20%",
     description:
-      "Revestimento cerâmico com nanotecnologia que cria camada protetora permanente. Brilho intenso, efeito hidrofóbico e proteção contra oxidação.",
-    image: nanoImage,
-    features: ["Brilho Permanente", "Efeito Hidrofóbico", "Proteção 5 anos"],
+      "Película automotiva com 20% de transparência, oferecendo equilíbrio entre aparência sofisticada, conforto térmico e proteção contra raios UV.",
+    image: filmImage,
+    features: [
+      "Transparência 20%",
+      "Proteção UV 99%",
+      "Redução de Calor Moderada",
+    ],
   },
   {
-    title: "Detailing Completo",
+    title: "Nano Proteção",
     description:
-      "Pacote premium com polimento técnico, vitrificação, higienização profunda e acabamento impecável. Seu veículo como novo.",
-    image: mainImage,
-    features: ["Polimento Técnico", "Higienização Profunda", "Acabamento Premium"],
+      "Revestimento nanotecnológico que cria uma película invisível, aumentando o brilho e facilitando a limpeza.",
+    image: filmImage,
+    features: ["Brilho Intenso", "Hidrorepelência", "Proteção Prolongada"],
+  },
+  {
+    title: "Cristalização dos Vidros",
+    description:
+      "Tratamento que cria uma camada resistente e repelente à água, melhorando a visibilidade e aumentando a segurança na condução.",
+    image: filmImage,
+    features: [
+      "Maior Visibilidade",
+      "Efeito Hidrofóbico",
+      "Facilidade na Limpeza",
+    ],
+  },
+  {
+    title: "Espelhamento de Pintura",
+    description:
+      "Processo de polimento avançado que remove microarranhões e realça o brilho espelhado da pintura.",
+    image: filmImage,
+    features: [
+      "Brilho Espelhado",
+      "Remoção de Microarranhões",
+      "Acabamento Premium",
+    ],
+  },
+  {
+    title: "Filme PS4",
+    description:
+      "Película automotiva de alta performance com proteção térmica e estética superior, ideal para quem busca conforto e estilo.",
+    image: filmImage,
+    features: ["Proteção UV 99%", "Alta Performance Térmica", "Visual Premium"],
   },
 ];
 
 const CarCarousel = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  );
+  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -61,10 +89,12 @@ const CarCarousel = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Proteção Premium <span className="text-green-500">Para Seu Veículo</span>
+            Proteção Premium{" "}
+            <span className="text-green-500">Para Seu Veículo</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Conheça nossos serviços automotivos de alto padrão com tecnologia de ponta
+            Conheça nossos serviços automotivos de alto padrão com tecnologia de
+            ponta
           </p>
         </div>
 
