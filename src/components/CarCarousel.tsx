@@ -22,7 +22,39 @@ import mainImage from "@/assets/hero-main.jpg";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState } from "react";
 
-const services = [
+type Service = {
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+  benefits: string[];
+  benefitImageKey?: string;
+};
+
+const benefitImageModules = import.meta.glob("@/assets/imgBeneficios/*", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const normalizeKey = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "")
+    .replace(/[^a-z0-9]/gi, "")
+    .toLowerCase();
+
+const benefitImages = Object.entries(benefitImageModules).reduce(
+  (acc, [path, src]) => {
+    const fileName = path.split("/").pop() ?? "";
+    const key = normalizeKey(fileName.split(".")[0] ?? fileName);
+    acc[key] = src;
+    return acc;
+  },
+  {} as Record<string, string>
+);
+
+const services: Service[] = [
   {
     title: "PPF",
     description:
@@ -41,6 +73,7 @@ const services = [
       "Proteção contra raios UV e oxidação",
       "Fácil manutenção e limpeza",
     ],
+    benefitImageKey: "ppf",
   },
   {
     title: "Filme Solar 20%",
@@ -60,6 +93,7 @@ const services = [
       "Aumenta a privacidade sem comprometer a visibilidade",
       "Economia de combustível com menor uso do ar condicionado",
     ],
+    benefitImageKey: "filme-solar-20",
   },
   {
     title: "Nano Proteção",
@@ -75,6 +109,7 @@ const services = [
       "Resistente a produtos químicos e detergentes",
       "Durabilidade prolongada com manutenção mínima",
     ],
+    benefitImageKey: "nano-protecao",
   },
   {
     title: "Cristalização dos Vidros",
@@ -94,6 +129,7 @@ const services = [
       "Facilita a limpeza dos vidros",
       "Durabilidade de até 2 anos",
     ],
+    benefitImageKey: "cristalizacaoVidros",
   },
   {
     title: "Espelhamento de Pintura",
@@ -113,6 +149,7 @@ const services = [
       "Aumenta o valor estético do veículo",
       "Acabamento profissional e duradouro",
     ],
+    benefitImageKey: "espelhamento-pintura",
   },
   {
     title: "Filme PS4",
@@ -128,6 +165,7 @@ const services = [
       "Melhora o conforto térmico",
       "Garantia de qualidade e durabilidade",
     ],
+    benefitImageKey: "filme-ps4",
   },
 ];
 
@@ -165,119 +203,126 @@ const CarCarousel = () => {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
-            {services.map((service, index) => (
-              <CarouselItem key={index}>
-                <Card className="border-0 bg-transparent">
-                  <CardContent className="p-0">
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                      {/* Image */}
-                      <div className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden group">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                      </div>
+            {services.map((service, index) => {
+              const benefitImageSrc =
+                benefitImages[
+                  normalizeKey(service.benefitImageKey ?? service.title)
+                ] ?? service.image;
 
-                      {/* Content */}
-                      <div className="space-y-6 p-6 md:p-8">
-                        <div>
-                          <span className="text-green-500 font-semibold text-sm tracking-wider uppercase">
-                            Serviço Premium
-                          </span>
-                          <div className="flex items-center gap-3 mt-2 mb-4">
-                            <h2 className="text-3xl md:text-4xl font-bold">
-                              {service.title}
-                            </h2>
-                            <Dialog
-                              open={openDialog === index}
-                              onOpenChange={(open) =>
-                                setOpenDialog(open ? index : null)
-                              }
-                            >
-                              <DialogTrigger asChild>
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  className="flex items-center gap-2"
-                                >
-                                  <Info className="h-4 w-4" />
-                                  Benefícios
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                                <DialogHeader>
-                                  <DialogTitle className="text-2xl">
-                                    Benefícios - {service.title}
-                                  </DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-6 mt-4">
-                                  {/* Imagem do produto */}
-                                  <div className="relative h-[300px] rounded-lg overflow-hidden">
-                                    <img
-                                      src={service.image}
-                                      alt={service.title}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  </div>
-                                  {/* Lista de benefícios */}
-                                  <div>
-                                    <h3 className="text-xl font-semibold mb-4 text-green-500">
-                                      Benefícios para o seu carro:
-                                    </h3>
-                                    <ul className="space-y-3">
-                                      {service.benefits.map((benefit, idx) => (
-                                        <li
-                                          key={idx}
-                                          className="flex items-start gap-3"
-                                        >
-                                          <span className="text-green-500 mt-1.5">
-                                            ✓
-                                          </span>
-                                          <span className="text-muted-foreground">
-                                            {benefit}
-                                          </span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                          <p className="text-muted-foreground text-lg leading-relaxed">
-                            {service.description}
-                          </p>
+              return (
+                <CarouselItem key={index}>
+                  <Card className="border-0 bg-transparent">
+                    <CardContent className="p-0">
+                      <div className="grid md:grid-cols-2 gap-8 items-center">
+                        {/* Image */}
+                        <div className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden group">
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                         </div>
 
-                        <div className="grid grid-cols-3 gap-4">
-                          {service.features.map((feature, idx) => (
-                            <div
-                              key={idx}
-                              className="bg-card border border-border rounded-lg p-4 text-center"
-                            >
-                              <div className="text-green-500 font-bold text-sm">
-                                {feature}
-                              </div>
+                        {/* Content */}
+                        <div className="space-y-6 p-6 md:p-8">
+                          <div>
+                            <span className="text-green-500 font-semibold text-sm tracking-wider uppercase">
+                              Serviço Premium
+                            </span>
+                            <div className="flex items-center gap-3 mt-2 mb-4">
+                              <h2 className="text-3xl md:text-4xl font-bold">
+                                {service.title}
+                              </h2>
+                              <Dialog
+                                open={openDialog === index}
+                                onOpenChange={(open) =>
+                                  setOpenDialog(open ? index : null)
+                                }
+                              >
+                                <DialogTrigger asChild>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="flex items-center gap-2"
+                                  >
+                                    <Info className="h-4 w-4" />
+                                    Benefícios
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                                  <DialogHeader>
+                                    <DialogTitle className="text-2xl">
+                                      Benefícios - {service.title}
+                                    </DialogTitle>
+                                  </DialogHeader>
+                                  <div className="space-y-6 mt-4">
+                                    {/* Imagem do produto */}
+                                    <div className="relative h-[300px] rounded-lg overflow-hidden">
+                                      <img
+                                        src={benefitImageSrc}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </div>
+                                    {/* Lista de benefícios */}
+                                    <div>
+                                      <h3 className="text-xl font-semibold mb-4 text-green-500">
+                                        Benefícios para o seu carro:
+                                      </h3>
+                                      <ul className="space-y-3">
+                                        {service.benefits.map((benefit, idx) => (
+                                          <li
+                                            key={idx}
+                                            className="flex items-start gap-3"
+                                          >
+                                            <span className="text-green-500 mt-1.5">
+                                              ✓
+                                            </span>
+                                            <span className="text-muted-foreground">
+                                              {benefit}
+                                            </span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
                             </div>
-                          ))}
+                            <p className="text-muted-foreground text-lg leading-relaxed">
+                              {service.description}
+                            </p>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-4">
+                            {service.features.map((feature, idx) => (
+                              <div
+                                key={idx}
+                                className="bg-card border border-border rounded-lg p-4 text-center"
+                              >
+                                <div className="text-green-500 font-bold text-sm">
+                                  {feature}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          {/* 
+                          <Button
+                            size="lg"
+                            onClick={scrollToContact}
+                            className="bg-primary hover:bg-primary/90 text-primary-foreground glow-red group"
+                          >
+                            Solicitar Orçamento
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
+                          </Button> */}
                         </div>
-                        {/* 
-                        <Button
-                          size="lg"
-                          onClick={scrollToContact}
-                          className="bg-primary hover:bg-primary/90 text-primary-foreground glow-red group"
-                        >
-                          Solicitar Orçamento
-                          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
-                        </Button> */}
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <CarouselPrevious className="left-4" />
           <CarouselNext className="right-4" />
