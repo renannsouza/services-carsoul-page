@@ -8,7 +8,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import ppfImage from "@/assets/hero-ppf.jpg";
+import ppfImage from "@/assets/carPPF.png";
 import filmImage from "@/assets/hero-film.jpg";
 import nanoImage from "@/assets/hero-nano.jpg";
 import mainImage from "@/assets/hero-main.jpg";
@@ -20,7 +20,7 @@ const services = [
     title: "PPF",
     description:
       "Película de proteção de pintura que evita arranhões, riscos e pequenos impactos, mantendo a originalidade da lataria.",
-    image: filmImage,
+    image: ppfImage,
     features: [
       "Alta Resistência",
       "Efeito Self-Healing",
