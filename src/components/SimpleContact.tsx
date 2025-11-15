@@ -63,7 +63,7 @@ const SimpleContact = () => {
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-8 max-w-2xl mx-auto">
+          {/* <div className="bg-card border border-border rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 text-center">Solicite um Orçamento</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
@@ -96,7 +96,7 @@ const SimpleContact = () => {
                 Enviar Mensagem
               </Button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
