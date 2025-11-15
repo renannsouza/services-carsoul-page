@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { ArrowRight, Info } from "lucide-react";
 import ppfImage from "@/assets/carPPF.png";
-import filmImage from "@/assets/hero-film.jpg";
+import filmImage from "@/assets/ppfCar.jpg";
 import nanoImage from "@/assets/hero-nano.jpg";
 import mainImage from "@/assets/hero-main.jpg";
 import Autoplay from "embla-carousel-autoplay";
