@@ -25,14 +25,14 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* <nav className="hidden md:flex items-center gap-8">
           <Button
             onClick={() => scrollToSection("contact")}
             className="bg-green-500 hover:bg-green-500/90 text-white glow-green"
           >
             Agendar Agora
           </Button>
-        </nav>
+        </nav> */}
 
         {/* Mobile Navigation */}
         <Sheet>
@@ -42,7 +42,7 @@ const Header = () => {
             </Button>
           </SheetTrigger>
           <SheetContent>
-            <nav className="flex flex-col gap-6 mt-8">
+            {/* <nav className="flex flex-col gap-6 mt-8">
               <button
                 onClick={() => scrollToSection("services")}
                 className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left"
@@ -55,7 +55,7 @@ const Header = () => {
               >
                 Agendar Agora
               </Button>
-            </nav>
+            </nav> */}
           </SheetContent>
         </Sheet>
       </div>
