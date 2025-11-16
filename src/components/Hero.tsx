@@ -22,7 +22,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-20 pt-16">
+      {/* <div className="container mx-auto px-4 relative z-20 pt-16">
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Proteção Premium
@@ -54,10 +54,10 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Stats */}
-      <div className="absolute bottom-8 left-0 right-0 z-20">
+      {/* <div className="absolute bottom-8 left-0 right-0 z-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl">
             <div className="text-center">
@@ -74,7 +74,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
