@@ -218,10 +218,12 @@ const CarCarousel = () => {
                         <div className="relative h-[300px] sm:h-[400px] md:h-[600px] rounded-2xl overflow-hidden group">
                           <img
                             src={service.image}
-                            alt={service.title}
+                            alt={`${service.title} - Serviço de proteção automotiva premium da CarSoul`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
                             loading="lazy"
                             decoding="async"
+                            width="600"
+                            height="600"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                         </div>
@@ -263,10 +265,12 @@ const CarCarousel = () => {
                                     <div className="relative h-[200px] sm:h-[300px] rounded-lg overflow-hidden">
                                       <img
                                         src={benefitImageSrc}
-                                        alt={service.title}
+                                        alt={`Benefícios do serviço ${service.title} da CarSoul`}
                                         className="w-full h-full object-cover"
                                         loading="lazy"
                                         decoding="async"
+                                        width="800"
+                                        height="300"
                                       />
                                     </div>
                                     {/* Lista de benefícios */}

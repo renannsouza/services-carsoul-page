@@ -19,8 +19,10 @@ const Header = () => {
         <div className="flex items-center justify-center gap-3 text-xl font-bold tracking-wider">
           <img
             src={vector}
-            alt="CarSoul icon"
+            alt="Logo CarSoul - Proteção Premium para Veículos"
             className="h-8 w-8 rounded shadow-sm"
+            width="32"
+            height="32"
           />
           <span>
             <span className="text-foreground">CAR</span>
