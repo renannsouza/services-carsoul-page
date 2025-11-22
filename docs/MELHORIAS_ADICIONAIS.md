@@ -87,7 +87,7 @@
 
 - `src/components/ErrorBoundary.tsx` - Componente para capturar erros
 - `src/components/SkipLinks.tsx` - Links de navegação rápida
-- `MELHORIAS_ADICIONAIS.md` - Este documento
+- `docs/MELHORIAS_ADICIONAIS.md` - Este documento
 
 ## 📝 Arquivos Modificados
 

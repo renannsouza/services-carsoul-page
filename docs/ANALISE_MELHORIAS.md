@@ -95,8 +95,8 @@
 
 ### Novos Arquivos
 - `src/lib/validation.ts` - Schema de validação Zod e funções de sanitização
-- `ANALISE_MELHORIAS.md` - Este documento de análise
-- `SECURITY_CONFIG.md` - Guia de configuração de segurança para produção
+- `docs/ANALISE_MELHORIAS.md` - Este documento de análise
+- `docs/SECURITY_CONFIG.md` - Guia de configuração de segurança para produção
 
 ### Arquivos Modificados
 - `index.html` - Meta tags de segurança e melhorias de SEO
