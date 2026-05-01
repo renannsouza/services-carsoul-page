@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
         <img
           src={heroImage}
-          alt="CARRO DE LUXO RECEBENDO TRATAMENTO de PROTEÇÃO PREMIUM CarSoul"
+          alt="CARRO DE LUXO RECEBENDO TRATAMENTO de PROTEÇÃO PREMIUM CARSoul"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
